@@ -1,23 +1,21 @@
-import { Component } from '@angular/core';
-import { SearchComponent } from '../search/search.component';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { response } from '../interfaces/response.interface';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-word-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './word-details.component.html',
   styleUrl: './word-details.component.css'
 })
 export class WordDetailsComponent {
   constructor(private apiService: ApiService){}
 
-searchResults$:  any
-ngOnInit() {
-//   this.apiService.searchResults$.subscribe(data => {
-//     this.searchResults = data;
-//   });
-// }
-}}
+// @Input() data: string =''
+@Input() data!:response[]
+
+}
+

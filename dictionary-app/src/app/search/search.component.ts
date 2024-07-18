@@ -29,11 +29,11 @@ export class SearchComponent implements OnInit{
 
   searchWord(){
     // validating input field
-    if (!this.searchTerm){
+    if (!this.searchTerm.trim()){
       console.log('please enter a value')
       return;
     }
-    this.apiService.fetchDefinition(this.searchTerm)
+    this.apiService.fetchDefinition(this.searchTerm.trim())
     .pipe(catchError(error => {
       console.error('Error fetching data:', error);
       return of([]);

@@ -1,5 +1,5 @@
 <div  class="main-container">
   <app-header (toggleThemeEvent)="toggleTheme()"></app-header>
-  <app-search></app-search>
-  <app-word-details></app-word-details>
+  <app-search (searchResult)="handleSearchResult($event)"></app-search>
+  <app-word-details [data]="searchResult"></app-word-details>
 </div>

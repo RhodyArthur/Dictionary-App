@@ -1,7 +1,8 @@
 <div class="audio-container">
-    <div class="word-container">
-        <p class="word">keyboard</p>
-        <p class="phonics">/ˈkiːbɔːd/</p>
+    <div class="word-container" *ngIf="data">
+        <!-- <p class="word">keyboard</p> -->
+        <p class="word">{{data[0].word}}</p>
+        <p class="phonics">{{data[0].phonetic}}</p>
     </div>
     <div class="play-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/>
