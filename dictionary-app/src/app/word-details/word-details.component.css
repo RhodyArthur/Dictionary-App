@@ -53,6 +53,7 @@ svg {
 
 .meaning-container {
     margin: 13px 24px;
+    width: 87%;
 }
 
 .word-meaning {
@@ -74,7 +75,7 @@ ul {
 
 .synonyms-container {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
     margin-inline: 24px;
     margin-bottom: 13px;
 }
@@ -112,6 +113,7 @@ ul {
 
 .bar, .source {
     margin-inline: 24px;
+    width: 87%;
 }
 
 

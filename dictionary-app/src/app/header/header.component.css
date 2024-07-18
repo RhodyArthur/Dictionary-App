@@ -10,9 +10,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 55%;
     height: 32px;
-
+    gap: 1.2rem;
 }
 
 .fonts {
@@ -126,10 +125,16 @@ svg {
     color: var(--active-color);
   }
 
+
+  
   /* 
   ===========================
   MEDIA QUERIES
   ======================== */
-  /* @media (max-width: 768px){
+@media (min-width:1024px){
+    .header__content {
+        max-width: 768px;
+    }
 
-  } */
+
+}
