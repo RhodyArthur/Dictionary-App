@@ -4,11 +4,14 @@ import { HeaderComponent } from "./header/header.component";
 import { SearchComponent } from "./search/search.component";
 import { WordDetailsComponent } from "./word-details/word-details.component";
 import { ThemeserviceService } from './services/themeservice.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, SearchComponent, WordDetailsComponent],
+  imports: [RouterOutlet, HeaderComponent, SearchComponent, WordDetailsComponent,
+    FormsModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -20,4 +23,5 @@ export class AppComponent {
   toggleTheme() {
     this.themeService.toggleDarkMode();
   }
+
 }

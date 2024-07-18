@@ -31,3 +31,8 @@
     background-color: var(--darkMode-bg);
     color: var(--white);
 }
+
+/* Specific styling for input elements in dark mode */
+.dark-mode input{
+    background-color: var(--darkMode-inputBg);
+}

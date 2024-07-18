@@ -25,3 +25,15 @@ input {
 svg {
     cursor: pointer;
 }
+
+
+/* 
+======================
+HOVER EFFECTS
+======================
+
+ */
+
+ .dark-mode input{
+    background-color: var(--darkMode-inputBg);
+}
