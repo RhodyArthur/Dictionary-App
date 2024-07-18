@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ThemeserviceService } from '../services/themeservice.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,14 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+@Output()
+toggleThemeEvent = new EventEmitter<void>();
+// themeService: ThemeserviceService
+themeService: any
+
 showDropDown:boolean = false;
 selectedFont:string = 'sans serif'
+isDarkMode:boolean = false;
 
 // toggle dropdown menu
 toggleDropDown(){
@@ -27,5 +34,10 @@ selectFont(fontType:string){
 // Apply selected font to body content
 applyFontToBody() {
   document.body.style.fontFamily = this.selectedFont;
+}
+
+// toggle theme to dark and light mode
+toggleTheme() {
+  this.toggleThemeEvent.emit()
 }
 }

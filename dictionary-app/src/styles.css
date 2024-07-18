@@ -26,3 +26,8 @@
     --bar: #E9E9E9;
 
 }
+
+.dark-mode {
+    background-color: var(--darkMode-bg);
+    color: var(--white);
+}

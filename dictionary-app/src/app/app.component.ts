@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { SearchComponent } from "./search/search.component";
 import { WordDetailsComponent } from "./word-details/word-details.component";
+import { ThemeserviceService } from './services/themeservice.service';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,10 @@ import { WordDetailsComponent } from "./word-details/word-details.component";
 })
 export class AppComponent {
   title = 'dictionary-app';
+
+  constructor (private themeService: ThemeserviceService){}
+
+  toggleTheme() {
+    this.themeService.toggleDarkMode();
+  }
 }

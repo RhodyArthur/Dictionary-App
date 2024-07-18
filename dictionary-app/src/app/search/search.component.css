@@ -19,6 +19,7 @@ input {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    width: 70%;
 }
 
 svg {
