@@ -78,12 +78,14 @@ ul {
     gap: 20px;
     margin-inline: 24px;
     margin-bottom: 13px;
+    flex-wrap: wrap;
+    width: 87%;
 }
 .synonyms{
     font-size: 16px;
     color: var(--text-color);
 }
-.keyboard {
+.synonym{
     color: var(--active-color);
     font-size: 16px;
     font-weight: 600;
@@ -130,3 +132,21 @@ a {
     color: var(--text-inputColor);
     margin-right: 5px;
 }
+
+/* 
+===================
+HOVER EFFECTS
+=================== */ 
+  .play-btn:hover g circle {
+    fill: var(--active-color); 
+    opacity: 0.9; 
+  }
+  
+  .play-btn:hover g path {
+    fill: var(--white); 
+  }
+  
+  .synonym:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }

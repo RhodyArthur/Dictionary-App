@@ -4,11 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { error } from 'console';
 import { response } from '../interfaces/response.interface';
 import { catchError, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,
+    CommonModule
+  ],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -18,8 +21,9 @@ export class SearchComponent implements OnInit{
   
   constructor(private apiService: ApiService) {}
 
-  searchTerm: string = ''
-
+  searchTerm: string = '';
+  // display error message
+  showErrorMsg:boolean = false;
 
   @Output()
   searchResult = new EventEmitter<any>();
@@ -30,9 +34,11 @@ export class SearchComponent implements OnInit{
   searchWord(){
     // validating input field
     if (!this.searchTerm.trim()){
-      console.log('please enter a value')
+      this.showErrorMsg = true;
       return;
     }
+
+    this.showErrorMsg = false;
     this.apiService.fetchDefinition(this.searchTerm.trim())
     .pipe(catchError(error => {
       console.error('Error fetching data:', error);
@@ -41,7 +47,10 @@ export class SearchComponent implements OnInit{
     .subscribe(data => {
       console.log(data)
       this.searchResult.emit(data)
-    })  
+      this.searchTerm = ''
+    }) 
+    
+    
   }
 
 }

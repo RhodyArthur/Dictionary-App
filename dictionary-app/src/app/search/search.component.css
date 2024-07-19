@@ -27,6 +27,14 @@ svg {
 }
 
 
+.error-outline{
+    border: 1px solid var(--error-color);
+}
+
+.error {
+    color: var(--error-color);
+    margin: 3px 24px;
+}
 /* 
 ======================
 HOVER EFFECTS

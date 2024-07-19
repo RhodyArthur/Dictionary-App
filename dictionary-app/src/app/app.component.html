@@ -1,5 +1,18 @@
 <div  class="main-container">
   <app-header (toggleThemeEvent)="toggleTheme()"></app-header>
   <app-search (searchResult)="handleSearchResult($event)"></app-search>
-  <app-word-details [data]="searchResult"></app-word-details>
+  <!-- conditionally render data or no results -->
+   @if(searchResult && searchResult.length > 0){
+     <app-word-details [data]="searchResult"></app-word-details>
+   }
+   @else {
+    
+   }
+   <!-- <div *ngIf="searchResult && searchResult.length > 0; else noResults">
+    <app-word-details [data]="searchResult"></app-word-details>
+  </div> -->
+  
+  <ng-template #noResults>
+    <p>No meaning found.</p>
+  </ng-template>
 </div>

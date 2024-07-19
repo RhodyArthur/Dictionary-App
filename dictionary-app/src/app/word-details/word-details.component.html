@@ -1,39 +1,35 @@
+@if(data){
 <div class="audio-container">
-    <div class="word-container" *ngIf="data">
-        <!-- <p class="word">keyboard</p> -->
+    <div class="word-container">
         <p class="word">{{data[0].word}}</p>
-        <p class="phonics">{{data[0].phonetic}}</p>
+
+        @if(!data[0].phonetic){
+            <p class="phonics">{{data[0].phonetics[1].text}}</p>
+        }
+        @else {
+            <p class="phonics">{{data[0].phonetic}}</p>
+        }
     </div>
-    <div class="play-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 75 75"><g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 75 75" (click)="playAudio()" class="play-btn">
+            <g fill="#A445ED" fill-rule="evenodd"><circle cx="37.5" cy="37.5" r="37.5" opacity=".25"/>
             <path d="M29 27v21l21-10.5z"/></g></svg>
     </div>
 </div>
 
 
 <div class="noun-container">
-    <p class="noun">noun </p>
+    <p class="noun">{{data[0].meanings[0].partOfSpeech}} </p>
     <hr>
 </div>
 <p class="meaning">Meaning</p>
 <div class="meaning-container">
-<ul>
-    <div>
-        <li class="word-meaning">(etc.) A set of keys used to operate a typewriter, computer etc.</li>
-    </div>
-
-    <div>
-        <li class="word-meaning">A component of many instruments including the piano, organ,
-             and harpsichord consisting of usually black and white keys that cause different tones to be produced when struck.</li>
-    </div>
-
-    <div>
-        <li class="word-meaning">
-            A device with keys of a musical keyboard,
-             used to control electronic sound-producing devices which may be built into or separate from the keyboard 
-        </li>
-    </div>
-    
+    <ul>
+    @for (definition of data[0].meanings[0].definitions; track $index) {
+        <div>
+            <li class="word-meaning">{{definition.definition}}</li>
+        </div>
+    }  
 </ul>
 </div>
 
@@ -41,12 +37,15 @@
 <!-- synonyms -->
  <div class="synonyms-container">
     <p class="synonyms">Synonyms</p>
-    <p class="keyboard">electronic keyboard</p>
+    @for (item of data[0].meanings[0].synonyms; track $index) {
+    <p class="synonym">{{item}}</p>
+    }
  </div>
 
  <div class="verb-container">
+    @if (data[0].meanings[0].partOfSpeech === 'verb') {}
     <div class="noun-container">
-        <p class="noun">verb </p>
+        <p class="noun">{{data[0].meanings[0].partOfSpeech}} </p>
         <hr>
     </div>
 
@@ -59,7 +58,11 @@
                 </ul>
             </div>
             <div class="example">
-                <p>“Keyboarding is the part of this job I hate the most.”</p>
+                @for (definition of data[0].meanings[0].definitions; track $index) {
+                    @if (definition.example) {
+                        <p>"{{definition.example}}"</p>
+                    }
+                }
             </div>
         </div>
     </div>
@@ -67,7 +70,9 @@
  <hr class="bar">
  <div class="source">
     <p>Source</p>
-    <a href="">https://en.wiktionary.org/wiki/keyboard
+    <a href="" target="_blank">{{data[0].sourceUrls}}
     </a>
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"><path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" (click)="copyLink()">
+        <path fill="none" stroke="#838383" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.09 3.545H2.456A1.455 1.455 0 0 0 1 5v6.545A1.455 1.455 0 0 0 2.455 13H9a1.455 1.455 0 0 0 1.455-1.455V7.91m-5.091.727 7.272-7.272m0 0H9m3.636 0V5"/></svg>
  </div>
+}
