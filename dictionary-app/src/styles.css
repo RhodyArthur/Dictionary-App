@@ -82,6 +82,8 @@ body.dark-mode .dropdown-menu {
     background-color: var(--darkMode-bg);
     box-shadow: 0px 0px 26px 3px var(--active-color);
   }
+
+body.dark-mode .fonts p,
 body.dark-mode .example-meaning,
 body.dark-mode .search__content input,
 body.dark-mode .source a{
