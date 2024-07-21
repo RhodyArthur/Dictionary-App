@@ -7,3 +7,12 @@
     @if(showErrorMsg){
         <p class="error">Whoops, can't be empty...</p>
     }
+    <!-- display error message if unable to fetch data from api -->
+    @if(fetchError){
+        <p class="error">Unable to fetch data from api</p>
+    }
+    <!-- loading indicator -->
+    @if(isLoading){
+        <p class="spinner"></p>
+    }
+    

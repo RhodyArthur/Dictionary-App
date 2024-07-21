@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { SearchComponent } from "./search/search.component";
@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'dictionary-app';
   searchResult:response[] = []
 
@@ -30,5 +30,9 @@ export class AppComponent {
 
   handleSearchResult(meaning:response[]) {
     this.searchResult = meaning;
+  }
+
+  ngOnInit(){
+    
   }
 }

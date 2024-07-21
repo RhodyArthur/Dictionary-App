@@ -2,17 +2,20 @@
   <app-header (toggleThemeEvent)="toggleTheme()"></app-header>
   <app-search (searchResult)="handleSearchResult($event)"></app-search>
   <!-- conditionally render data or no results -->
-   @if(searchResult && searchResult.length > 0){
+   @if(searchResult.length > 0){
      <app-word-details [data]="searchResult"></app-word-details>
    }
    @else {
-    
+    <!-- <p>😕</p> -->
    }
    <!-- <div *ngIf="searchResult && searchResult.length > 0; else noResults">
     <app-word-details [data]="searchResult"></app-word-details>
   </div> -->
   
   <ng-template #noResults>
-    <p>No meaning found.</p>
+    <div class="no-results">
+      <p>😕</p>
+      <p>No meaning found.</p>
+    </div>
   </ng-template>
 </div>
