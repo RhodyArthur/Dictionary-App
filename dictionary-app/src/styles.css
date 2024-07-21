@@ -70,7 +70,7 @@ body {
 body.dark-mode .search__content{
     background-color: var(--darkMode-inputBg);
 }
-body.dark-mode input:-internal-autofill-selected{
+body.dark-mode .search__content input:-internal-autofill-selected{
     background-color: var(--darkMode-inputBg);
 }
 
@@ -83,6 +83,7 @@ body.dark-mode .dropdown-menu {
     box-shadow: 0px 0px 26px 3px var(--active-color);
   }
 body.dark-mode .example-meaning,
+body.dark-mode .search__content input,
 body.dark-mode .source a{
     color: var(--white);
 }
