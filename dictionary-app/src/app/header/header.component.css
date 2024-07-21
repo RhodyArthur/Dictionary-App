@@ -55,6 +55,7 @@ svg {
 .dropdown-menu ul li {
     cursor: pointer;
     padding: 5px 10px;
+    font-weight: 600;
 }
 
 .rectangle {
@@ -115,6 +116,9 @@ svg {
     transform: translateX(14px); 
   }
 
+  svg#moon path {
+    stroke: #838383;
+  }
 
   /* 
   ====================

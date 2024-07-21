@@ -150,3 +150,16 @@ HOVER EFFECTS
     text-decoration: underline;
     cursor: pointer;
   }
+
+    /* 
+  ===========================
+  MEDIA QUERIES
+  ======================== */
+/* @media (max-width:1024px){
+    .source {
+        display: flex;
+        gap: 10px;
+    }
+
+
+} */

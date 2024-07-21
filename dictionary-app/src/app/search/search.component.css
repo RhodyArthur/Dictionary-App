@@ -36,12 +36,6 @@ svg {
     margin: 3px 24px;
 }
 
-/* .loading {
-    text-align: center;
-    margin: 24px;
-    font-size: 2rem;
-    color: var(--text-color);
-} */
 .spinner {
     border: 12px solid var(--bar); 
     border-top: 12px solid var(--active-color);

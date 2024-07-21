@@ -12,11 +12,12 @@ export class HeaderComponent {
 
 @Output()
 toggleThemeEvent = new EventEmitter<void>();
-// themeService: ThemeserviceService
-themeService: any
+themeService: ThemeserviceService | undefined
+// themeService: any
 
 showDropDown:boolean = false;
-selectedFont:string = 'sans serif'
+fonts: string[] = ['Sans Serif', 'Serif', 'Mono'];
+selectedFont:string = 'Sans serif'
 isDarkMode:boolean = false;
 
 // toggle dropdown menu
